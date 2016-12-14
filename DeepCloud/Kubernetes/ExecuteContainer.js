@@ -12,7 +12,7 @@ var initiallizeuserid_docker3 = function(pUserId){
 var initiallizeRunCommand_docker3 = function(pUserId){
 	
 	var runcommand1 = "sudo docker run --name";
-	var runcommand2 = "-i -t -d ";
+	var runcommand2 = "-i -t ";
 	var container_instance = "container_instance";
 	var container_img = "rashmitiwari1990/uf:ubuntutest1";
 	//var userId = pUserId;
@@ -36,6 +36,7 @@ var run_container = function(){
 			if(error != null){
 				throw error;	
 			}else{				//containerStartCallback.containerStartCallback(null, "20", stdout);
+				console.log(stdout);
 			}
 		});
 	}catch(error){
