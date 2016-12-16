@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" 
+	</head>
+	
+	<body>
+	
+		<h1>S3-Lab-Test</h1>
+		<form action="/uploadCompleteScript" enctype="multipart/form-data" method="post">
+		Image width : <input type="text" name="width" value="28"> <br> 
+		Image height : <input type="text" name="height" value="28"> <br>
+		Number of Classes : <input type="text" name="nClass" value="10"> <br>
+		Learning rate : <input type="text" name="alpha" value="0.01"> <br>
+
+		<input type="file" name="upload" multiple="multiple">
+		<input type="submit"  value="Upload file" />
+		</form>
+		
+		<a href="/MNISTPredictorPage"> Click here for testing on pretrained MNIST model </a> <br>
+		<a href="/generalPredictorPage"> Click here for testing on any model </a> <br>
+		<a href="/killProcessPage"> Click here to kill process with pid </a> <br>
+		<a href="/getDashboard"> Click here to get dashboard info in JSON</a> <br>
+		
+	</body>
+</html>

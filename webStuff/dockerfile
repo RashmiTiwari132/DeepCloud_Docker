@@ -1,0 +1,26 @@
+#Set the base image to Ubuntu
+FROM rashmitiwari1990/uf:nvidia_caffe_s3lab_v1
+
+#File Author / Mainetainer
+MAINTAINER Maintainer S3LabUF
+
+# Update the sources list
+RUN apt-get update
+
+#Install Python and Basic Python Tools
+#RUN apt-get install -y python python-dev python-distribute python-pip
+
+RUN pip3 install  demjson
+
+#Copy the application folder inside the container
+ADD /training_testing_script/integrateKube/S3LabUploads /training_testing_script
+
+#Set the default directory where CMD will execute
+WORKDIR /training_testing_script
+
+#Execute script by using RUN
+#RUN python3 newTest.py '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'
+
+#Set the default command to execute
+CMD python3 newTest.py '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'
+#CMD ["python3", "newTest.py", "'{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'"]
