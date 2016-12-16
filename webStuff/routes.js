@@ -38,7 +38,7 @@ router.post("/uploadCompleteScript",function (request,response) {
 	form.on('fileBegin', function(name, file) {
 		console.log("*********** got file : "+file.name);
 		file.path = path.join(__dirname,"/training_testing_script/",file.name);
-		fileName = file.name;
+		fileName = file.name.substring(0,file.name.indexOf("."));
 	});
 
 	form.parse(request,function(error,fields,files) {

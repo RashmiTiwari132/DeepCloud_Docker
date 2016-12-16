@@ -22,5 +22,5 @@ WORKDIR /training_testing_script
 #RUN python3 newTest.py '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'
 
 #Set the default command to execute
-CMD python3 newTest.py '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'
+CMD python3 newTest.py '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}' 2>/dev/null
 #CMD ["python3", "newTest.py", "'{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'"]
