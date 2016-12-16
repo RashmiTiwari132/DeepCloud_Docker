@@ -17,9 +17,9 @@ var initiallizeRunCommand_docker3 = function(pUserId){
 	//var userId = pUserId;
 	var userId = "";
 	var space = " ";
-        var exec = "python3 newTest.py '"+pUserId+"' 2>/dev/null";
-//"python3 newTest.py '{\"width\":\"28\",\"height\":\"28\",\"nClass\":\"10\",\"alpha\":\"0.01\",\"File Name\":\"MNIST_data\",\"modelID\":\"testID\"}' 2>/dev/null"
+        var exec = "python3 newTest.py '"+pUserId+"'";
 	runcommand_docker3 = runcommand1+space+container_instance+userId+space+space+container_img+userId+" "+exec;
+	//console.log("\n\n EXEC  "+exec+" \n\n"+pUserId);
 }
 
 var initiallize_docker3 = function(pUserId){
@@ -37,7 +37,7 @@ var run_container = function(){
 				console.log(error);	
 			}else{				//containerStartCallback.containerStartCallback(null, "20", stdout);
 				console.log(stdout);
-				return stdout;
+				//return stdout;
 			}
 		});
 	}catch(error){
