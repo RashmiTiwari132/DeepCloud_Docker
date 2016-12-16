@@ -52,8 +52,9 @@ router.post("/uploadCompleteScript",function (request,response) {
 		data = JSON.stringify(jsonSend) 
 		console.log("data to be sent to docker module is : "+data)	
 		var x = require('./DockerBackendInterface.js') 
-		var xOutput = x.deploy_application(data);
-		console.log("output is : "+xOutput);
+		x.deploy_application(data, function(output) {
+			console.log("printing from deploy : "+output);
+		});
 	});
 	
 });
