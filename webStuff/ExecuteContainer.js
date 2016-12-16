@@ -29,7 +29,7 @@ var initiallize_docker3 = function(pUserId){
 	console.log('Initiallized the command '+runcommand_docker3);
 }
 
-var run_container = function(){
+var run_container = function(callback){
 
 	try{
 		exec(runcommand_docker3, function(error, stdout, stderr){
@@ -37,6 +37,7 @@ var run_container = function(){
 				console.log(error);	
 			}else{				//containerStartCallback.containerStartCallback(null, "20", stdout);
 				console.log(stdout);
+				callback(stdout);
 				//return stdout;
 			}
 		});
@@ -46,14 +47,14 @@ var run_container = function(){
 	}
 }
 
-var start = function(pUserId){
+var start = function(pUserId, callback){
 	initiallize_docker3(pUserId);
-	console.log(run_container());
+	run_container(callback);
 	console.log("UserId "+pUserId+" finished execution");
 }
 
-var start_container = function(pUserId){
-	start(pUserId);
+var start_container = function(pUserId, callback){
+	start(pUserId, callback);
 }
 
 module.exports.start_container = start_container;
