@@ -12,14 +12,13 @@ var initiallizeuserid_docker3 = function(pUserId){
 var initiallizeRunCommand_docker3 = function(pUserId){
 	
 	var runcommand1 = "sudo docker run --name";
-	var runcommand2 = "-i -t ";
 	var container_instance = "container_instance";
-	var container_img = "rashmitiwari1990/uf:ubuntutest1";
+	var container_img = "rashmitiwari1990/uf:script";
 	//var userId = pUserId;
 	var userId = "";
 	var space = " ";
 
-	runcommand_docker3 = runcommand1+space+container_instance+userId+space+runcommand2+space+container_img+userId;
+	runcommand_docker3 = runcommand1+space+container_instance+userId+space+space+container_img+userId;
 }
 
 var initiallize_docker3 = function(pUserId){
@@ -34,7 +33,7 @@ var run_container = function(){
 	try{
 		exec(runcommand_docker3, function(error, stdout, stderr){
 			if(error != null){
-				throw error;	
+				console.log(error);	
 			}else{				//containerStartCallback.containerStartCallback(null, "20", stdout);
 				console.log(stdout);
 			}
