@@ -54,6 +54,7 @@ router.post("/uploadCompleteScript",function (request,response) {
 		var x = require('./DockerBackendInterface.js') 
 		x.deploy_application(data, function(output) {
 			console.log("printing from deploy : "+output);
+			response.end(output)
 		});
 	});
 	
