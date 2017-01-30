@@ -45,3 +45,6 @@ router.post("/getModel", function(req,res) {
 module.exports = router ; 
 
 // 3a3b59d2-cfd0-4ab1-bce3-c64fce62f77d
+
+// curl -F modelID="3a3b59d2-cfd0-4ab1-bce3-c64fce62f77d" -F modelDescription="testDescription" -F modelPath="/test/path" localhost:6666/addModel
+// curl -F modelID="3a3b59d2-cfd0-4ab1-bce3-c64fce62f77d"  localhost:6666/getModel
