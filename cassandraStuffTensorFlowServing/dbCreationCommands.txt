@@ -1,0 +1,3 @@
+CREATE KEYSPACE IF NOT EXISTS tensorServing WITH REPLICATION = { 'class': 'SimpleStrategy','replication_factor': 1 };
+
+CREATE TABLE IF NOT EXISTS tensorServing.modelDetails (modelID UUID, description text, modelPath text, PRIMARY KEY(modelID));

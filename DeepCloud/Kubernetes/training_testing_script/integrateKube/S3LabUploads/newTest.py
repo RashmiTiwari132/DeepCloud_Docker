@@ -2,7 +2,7 @@
 # learning rate : alpha, zipFileName :
 
 
-import tensorflow.examples.tutorials.mnist.input_data
+#import tensorflow.examples.tutorials.mnist.input_data
 import input_data
 import zipfile
 import sys, json, demjson
