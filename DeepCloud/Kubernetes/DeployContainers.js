@@ -38,15 +38,12 @@ var create_pod = function(userId){
 		res.setEncoding('utf8');
 		res.on('data', function(chunk){
 			console.log('Body '+JSON.stringify(chunk));
-			var parsedString = JSON.parse(JSON.stringify(chunk));
-			var parsedKind = parsedString[0];
-			console.log("\n \n "+parsedKind.kind);
 		});
 	});
 
 	req.write(options_jsonString);
 	req.end();
-}();
+};
 
 var options_deleteDeployment = {
 	host:'s3-worker1.ece.ufl.edu',
