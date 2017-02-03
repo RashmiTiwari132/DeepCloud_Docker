@@ -14,7 +14,7 @@ const options_json = {
       {
         "name": "nvidia-caffe-container",
         "image": "rashmitiwari1990/uf:nvidia_caffe_s3lab_v24",
-		"command": ["python3", "newTest.py", "'{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'"]
+		"command": ["python3", "-W ignore" ,"newTest.py", '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}']
       }
     ]
   }
