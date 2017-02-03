@@ -3,37 +3,27 @@ const exec = require('child_process').exec;
 
 const runcommand_docker3 = "curl -k -H \"Content-Type: application/json\" -X POST -d @deployment_ubuntu.json http:\/\/s3-worker1.ece.ufl.edu\/apis\/extensions\/v1beta1\/namespaces\/default\/deployments\/";
 const options_json = {
-	"kind": "Deployment",
-	"apiVersion": "extensions\/v1beta1",
-	        "metadata": {
-                "name": "ubuntu"
-        },
-        "spec": {
-                "replicas": 1,
-                "template": {
-                        "metadata":{
-                                "labels":{
-                                        "run": "ubuntu"
-                                }
-                        },
-                        "spec": {
-                                "containers": [{
-                                        "name": "ubuntu",
-                                        "image": "ubuntu:14.04",
-                                        "ports":[{
-                                                "containerPort": 80
-                                        }]
-                                }]
-                        }
-                }
-        }
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "nvidia-caffe-pod"
+  },
+  "spec": {
+	"restartPolicy": "Never",
+    "containers": [
+      {
+        "name": "nvidia-caffe-container",
+        "image": "rashmitiwari1990/uf:nvidia_caffe_s3lab_v22"
+      }
+    ]
+  }
 };
 
 const options_jsonString = JSON.stringify(options_json);
 
-var options_createDeployment = {
+var options_createpod = {
 	host:'s3-worker1.ece.ufl.edu',
-	path:'/apis/extensions/v1beta1/namespaces/default/deployments/',
+	path:'/api/v1/namespaces/default/pods/',
 	method: 'POST',
 	json: 'true',
 	headers : {
@@ -42,28 +32,26 @@ var options_createDeployment = {
 	}
 };
 
-var create_deployment = function(userId){
-	var req = http.request(options_createDeployment, function(res){
+var create_pod = function(userId){
+	var req = http.request(options_createpod, function(res){
 		console.log("create_deployment : response");
 		res.setEncoding('utf8');
 		res.on('data', function(chunk){
 			console.log('Body '+JSON.stringify(chunk));
+			var parsedString = JSON.parse(JSON.stringify(chunk));
+			var parsedKind = parsedString[0];
+			console.log("\n \n "+parsedKind.kind);
 		});
 	});
 
 	req.write(options_jsonString);
 	req.end();
-};
+}();
 
 var options_deleteDeployment = {
 	host:'s3-worker1.ece.ufl.edu',
-	path:'/apis/extensions/v1beta1/namespaces/default/deployments/ubuntu',
-	method: 'POST',
-	json: 'true',
-	headers : {
-			'Content-Type': 'application/json',
-			'Content-Length': Buffer.byteLength(options_jsonString)
-	}
+	path:'/api/v1/namespaces/default/pods/ubuntu',
+	method: 'DELETE'
 };
 
 var delete_deployment = function(userId){
@@ -77,5 +65,5 @@ var delete_deployment = function(userId){
 	req.end();
 };
 
-module.exports.create_deployment = create_deployment;
+module.exports.create_pod = create_pod;
 module.exports.delete_deployment = delete_deployment;

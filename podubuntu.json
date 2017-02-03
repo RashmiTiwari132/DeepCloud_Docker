@@ -1,0 +1,16 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "nvidia-caffe-pod"
+  },
+  "spec": {
+	"restartPolicy": "Never",
+    "containers": [
+      {
+        "name": "nvidia-caffe-container",
+        "image": "rashmitiwari1990/uf:nvidia_caffe_s3lab_v22"
+      }
+    ]
+  }
+}
