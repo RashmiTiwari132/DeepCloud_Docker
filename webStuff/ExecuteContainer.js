@@ -17,7 +17,7 @@ var initiallizeRunCommand_docker3 = function(pUserId){
 	//var userId = pUserId;
 	var userId = "";
 	var space = " ";
-        var exec = "python3 newTest.py '"+pUserId+"'";
+        var exec = "python3 -W ignore newTest.py '"+pUserId+"'";
 	runcommand_docker3 = runcommand1+space+container_instance+userId+space+space+container_img+userId+" "+exec;
 	//console.log("\n\n EXEC  "+exec+" \n\n"+pUserId);
 }
@@ -33,8 +33,8 @@ var run_container = function(callback){
 
 	try{
 		exec(runcommand_docker3, function(error, stdout, stderr){
-			if(error != null){
-				console.log(error);	
+			if(stderr != null){
+				console.log("stderr output : "+stderr);	
 			}else{				//containerStartCallback.containerStartCallback(null, "20", stdout);
 				console.log(stdout);
 				callback(stdout);

@@ -14,7 +14,7 @@ const options_json = {
       {
         "name": "nvidia-caffe-container",
         "image": "rashmitiwari1990/uf:nvidia_caffe_s3lab_v24",
-		"command": ["python3", "newTest.py", "'{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"MNIST_data","modelID":"testID"}'"]
+				"command": ["echo hello world"]
       }
     ]
   }
@@ -44,7 +44,7 @@ var create_pod = function(userId){
 
 	req.write(options_jsonString);
 	req.end();
-};
+}("123");
 
 var options_deleteDeployment = {
 	host:'s3-worker1.ece.ufl.edu',

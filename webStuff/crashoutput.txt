@@ -1,0 +1,27 @@
+App listening on port 8888!
+hi
+Homepage requested.
+hi
+Request handler 'uploadCompleteScript' was called.
+*********** got file : 45.png
+data to be sent to docker module is : {"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"45","modelID":"b04f0f60-2c68-4d06-98cb-193d0257d6f3"}
+Initiallized the command sudo docker run --name container_instance  rashmitiwari1990/uf:script python3 newTest.py '{"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"45","modelID":"b04f0f60-2c68-4d06-98cb-193d0257d6f3"}'
+UserId {"width":"28","height":"28","nClass":"10","alpha":"0.01","File Name":"45","modelID":"b04f0f60-2c68-4d06-98cb-193d0257d6f3"} finished execution
+stderr output : I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:102] Couldn't open CUDA library libcudnn.so. LD_LIBRARY_PATH: /usr/local/nvidia/lib:/usr/local/nvidia/lib64:
+I tensorflow/stream_executor/cuda/cuda_dnn.cc:2259] Unable to load cuDNN DSO
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:102] Couldn't open CUDA library libcuda.so.1. LD_LIBRARY_PATH: /usr/local/nvidia/lib:/usr/local/nvidia/lib64:
+I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:160] hostname: 7b7c437abbc6
+I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:185] libcuda reported version is: Not found: was unable to find libcuda.so DSO loaded into this program
+I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:189] kernel reported version is: Permission denied: could not open driver version path for reading: /proc/driver/nvidia/version
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1077] LD_LIBRARY_PATH: /usr/local/nvidia/lib:/usr/local/nvidia/lib64:
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1078] failed to find libcuda.so on this system: Failed precondition: could not dlopen DSO: libcuda.so.1; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcurand.so locally
+Traceback (most recent call last):
+  File "newTest.py", line 36, in <module>
+    zip_ref = zipfile.ZipFile(paramtersDict["File Name"]+".zip", 'r')
+  File "/usr/lib/python3.4/zipfile.py", line 923, in __init__
+    self.fp = io.open(file, modeDict[mode])
+FileNotFoundError: [Errno 2] No such file or directory: '45.zip'
+

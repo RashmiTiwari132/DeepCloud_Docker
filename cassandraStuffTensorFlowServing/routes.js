@@ -7,7 +7,7 @@ var formidable=require("formidable");
 router.post("/addModel", function(req,res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req,function(error,fields,files) {
-		database.addModel(fields.modelID,fields.modelDescription,fields.modelPath, function (err,result) {
+		database.addModel(fields.modelID,fields.modelDescription,fields.modelPath,fields.paper_link,fields.tags,fields.developer_username, function (err,result) {
 			if(err!=null) {
 				res.writeHead(400,{"Content-Type": "text/html"});
 				res.write("adding model failed.");
@@ -37,6 +37,37 @@ router.post("/getModel", function(req,res) {
 				res.end(JSON.stringify(result.rows[0]));
 			}
 		});
+	});
+});
+
+router.post("/addReview",function(req,res) {
+	var form = new formidable.IncomingForm();
+	form.parse(req,function(error,fields,files) {
+		database.addReview(fields.modelID,fields.reviewer_username,Date.now(),fields.reviewer_username,function(err,result) {
+			if(err!=null) {
+				res.writeHead(400,{"Content-Type": "text/html"});
+				res.write("Adding review failed : "+err);
+			}
+			else {
+				res.writeHead(200,{"Content-Type": "text/html"});
+				//res.end(JSON);
+				res.end("Review added.");
+			}
+		});
+	});
+});
+
+router.get("/getReviews",function(req,res) {
+	database.getReviews(req.query.modeID,function(err,result) {
+		if(err!=null) {
+				res.writeHead(400,{"Content-Type": "text/html"});
+				res.write("Fetching reviews failed : "+err);
+		}
+		else {
+			res.writeHead(200,{"Content-Type": "text/html"});
+			//res.end(JSON);
+			res.end(JSON.stringify(result.rows));
+		}
 	});
 });
 
