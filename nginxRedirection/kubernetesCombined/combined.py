@@ -8,8 +8,8 @@ def getServerString(url,podIP):
 
 def generatePart2(podInfo):
 	part2 = ""
-	for i in range(0,len(podInfo['items'])):
-		part2 += getServerString(podInfo['items'][i]['metadata']['ownerReferences'][0]['name'],podInfo['items'][i]['status']['podIP'])
+	for i in range(0,1):#len(podInfo['items'])):
+		part2 += getServerString(podInfo['items'][i]['metadata']['ownerReferences'][0]['name'],podInfo['items'][i]['status']['podIP']+":"+str(podInfo['items'][0]['spec']['containers'][0]['ports'][0]['containerPort']))
 	return part2
 
 
@@ -21,8 +21,9 @@ part3String = ''
 with open('part3','r') as myFile:
 	part3String = myFile.read()
 
+
 combined = part1String + generatePart2(podInfo) + part3String
 
-with open("/etc/nginx/nginx.conf", "w") as text_file:
+with open("/etc/nginx/conf.d/default.conf", "w") as text_file:
     text_file.write(combined)
 

@@ -1,0 +1,314 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/created-by: |
+        {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"ipython-deployment-1660404619","uid":"1055a15b-f487-11e6-8b3d-ecf4bbd9ad2c","apiVersion":"extensions","resourceVersion":"1162"}}
+    creationTimestamp: 2017-02-16T20:32:41Z
+    generateName: ipython-deployment-1660404619-
+    labels:
+      app: ipython
+      pod-template-hash: "1660404619"
+    name: ipython-deployment-1660404619-bm9d5
+    namespace: default
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      controller: true
+      kind: ReplicaSet
+      name: ipython-deployment-1660404619
+      uid: 1055a15b-f487-11e6-8b3d-ecf4bbd9ad2c
+    resourceVersion: "1304"
+    selfLink: /api/v1/namespaces/default/pods/ipython-deployment-1660404619-bm9d5
+    uid: 10561f48-f487-11e6-8b3d-ecf4bbd9ad2c
+  spec:
+    containers:
+    - image: jupyter/minimal-notebook
+      imagePullPolicy: Always
+      name: ipython
+      ports:
+      - containerPort: 8888
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-fmfrr
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    nodeName: 128.227.246.40
+    restartPolicy: Always
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - name: default-token-fmfrr
+      secret:
+        defaultMode: 420
+        secretName: default-token-fmfrr
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-16T20:32:41Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-16T20:33:37Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-16T20:32:41Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://76c6744c91f56e09fabcc6673e150b330f60fcebcd1dde7c141ddae736c5fc58
+      image: jupyter/minimal-notebook
+      imageID: docker-pullable://jupyter/minimal-notebook@sha256:9206c07cc600f861c3abd10394d8c59375caaab700f9dd6f5718f7a4900e3e16
+      lastState: {}
+      name: ipython
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2017-02-16T20:33:36Z
+    hostIP: 128.227.246.40
+    phase: Running
+    podIP: 10.1.56.5
+    startTime: 2017-02-16T20:32:41Z
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/created-by: |
+        {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"ipython-deployment-1660404619","uid":"1055a15b-f487-11e6-8b3d-ecf4bbd9ad2c","apiVersion":"extensions","resourceVersion":"1162"}}
+    creationTimestamp: 2017-02-16T20:32:41Z
+    generateName: ipython-deployment-1660404619-
+    labels:
+      app: ipython
+      pod-template-hash: "1660404619"
+    name: ipython-deployment-1660404619-jp13n
+    namespace: default
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      controller: true
+      kind: ReplicaSet
+      name: ipython-deployment-1660404619
+      uid: 1055a15b-f487-11e6-8b3d-ecf4bbd9ad2c
+    resourceVersion: "1307"
+    selfLink: /api/v1/namespaces/default/pods/ipython-deployment-1660404619-jp13n
+    uid: 10561f0f-f487-11e6-8b3d-ecf4bbd9ad2c
+  spec:
+    containers:
+    - image: jupyter/minimal-notebook
+      imagePullPolicy: Always
+      name: ipython
+      ports:
+      - containerPort: 8888
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-fmfrr
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    nodeName: 128.227.246.40
+    restartPolicy: Always
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - name: default-token-fmfrr
+      secret:
+        defaultMode: 420
+        secretName: default-token-fmfrr
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-16T20:32:41Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-16T20:33:37Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-16T20:32:41Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://e392701e0a4f6558b86e5d0d9e49e178c1d1b0f461a0343de871774e612d4322
+      image: jupyter/minimal-notebook
+      imageID: docker-pullable://jupyter/minimal-notebook@sha256:9206c07cc600f861c3abd10394d8c59375caaab700f9dd6f5718f7a4900e3e16
+      lastState: {}
+      name: ipython
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2017-02-16T20:33:36Z
+    hostIP: 128.227.246.40
+    phase: Running
+    podIP: 10.1.56.4
+    startTime: 2017-02-16T20:32:41Z
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/created-by: |
+        {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"tensorflow-deployment-3565275050","uid":"9a6cf808-f855-11e6-8b3d-ecf4bbd9ad2c","apiVersion":"extensions","resourceVersion":"878106"}}
+    creationTimestamp: 2017-02-21T16:48:42Z
+    generateName: tensorflow-deployment-3565275050-
+    labels:
+      app: tensorflow
+      pod-template-hash: "3565275050"
+    name: tensorflow-deployment-3565275050-8fzmz
+    namespace: default
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      controller: true
+      kind: ReplicaSet
+      name: tensorflow-deployment-3565275050
+      uid: 9a6cf808-f855-11e6-8b3d-ecf4bbd9ad2c
+    resourceVersion: "878192"
+    selfLink: /api/v1/namespaces/default/pods/tensorflow-deployment-3565275050-8fzmz
+    uid: 9a6d8f04-f855-11e6-8b3d-ecf4bbd9ad2c
+  spec:
+    containers:
+    - image: gcr.io/tensorflow/tensorflow
+      imagePullPolicy: Always
+      name: tensorflow
+      ports:
+      - containerPort: 8888
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-fmfrr
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    nodeName: 128.227.246.40
+    restartPolicy: Always
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - name: default-token-fmfrr
+      secret:
+        defaultMode: 420
+        secretName: default-token-fmfrr
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-21T16:48:42Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-21T16:49:10Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-21T16:48:42Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://a954c16637c1e10e68fa7a37fcc23e2110db455b2097fc2f818d3448a0e7cc76
+      image: gcr.io/tensorflow/tensorflow
+      imageID: docker-pullable://gcr.io/tensorflow/tensorflow@sha256:b93920e48c8c1727ce27c7b1bc310ba2b681deeca302a23f042586ac646e4881
+      lastState: {}
+      name: tensorflow
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2017-02-21T16:49:09Z
+    hostIP: 128.227.246.40
+    phase: Running
+    podIP: 10.1.56.6
+    startTime: 2017-02-21T16:48:42Z
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/created-by: |
+        {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"tensorflow-deployment-3565275050","uid":"9a6cf808-f855-11e6-8b3d-ecf4bbd9ad2c","apiVersion":"extensions","resourceVersion":"878106"}}
+    creationTimestamp: 2017-02-21T16:48:42Z
+    generateName: tensorflow-deployment-3565275050-
+    labels:
+      app: tensorflow
+      pod-template-hash: "3565275050"
+    name: tensorflow-deployment-3565275050-tl90n
+    namespace: default
+    ownerReferences:
+    - apiVersion: extensions/v1beta1
+      controller: true
+      kind: ReplicaSet
+      name: tensorflow-deployment-3565275050
+      uid: 9a6cf808-f855-11e6-8b3d-ecf4bbd9ad2c
+    resourceVersion: "878189"
+    selfLink: /api/v1/namespaces/default/pods/tensorflow-deployment-3565275050-tl90n
+    uid: 9a6d8c72-f855-11e6-8b3d-ecf4bbd9ad2c
+  spec:
+    containers:
+    - image: gcr.io/tensorflow/tensorflow
+      imagePullPolicy: Always
+      name: tensorflow
+      ports:
+      - containerPort: 8888
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-fmfrr
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    nodeName: 128.227.246.40
+    restartPolicy: Always
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - name: default-token-fmfrr
+      secret:
+        defaultMode: 420
+        secretName: default-token-fmfrr
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-21T16:48:42Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-21T16:49:10Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2017-02-21T16:48:42Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://b12fff417211446bcc18d46b44e09c494cb2f590e5d6453da9b7705739c0a66a
+      image: gcr.io/tensorflow/tensorflow
+      imageID: docker-pullable://gcr.io/tensorflow/tensorflow@sha256:b93920e48c8c1727ce27c7b1bc310ba2b681deeca302a23f042586ac646e4881
+      lastState: {}
+      name: tensorflow
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2017-02-21T16:49:10Z
+    hostIP: 128.227.246.40
+    phase: Running
+    podIP: 10.1.56.7
+    startTime: 2017-02-21T16:48:42Z
+kind: List
+metadata: {}
+resourceVersion: ""
+selfLink: ""
