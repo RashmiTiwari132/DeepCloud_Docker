@@ -13,6 +13,9 @@ module.exports = {
 		});
 	},
 
+	//example 
+	curl -F modelID="3a3b59d2-cfd0-4ab1-bce3-c64fce62f77d" -F description="testDescription" -F modelPath="/test/path" -F paper_link="testLink" -F tags="tag1,tag2" -F username="testUsername" deepc05.acis.ufl.edu:7070/addModel
+
 	getModel : function(modelID,callback) {
 		var query = "SELECT * FROM tensorServing.modelDetails  WHERE modelID=?";
 		client.execute(query,[modelID],{ prepare: true}, function(err,result) {
