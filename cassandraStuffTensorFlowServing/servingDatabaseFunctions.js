@@ -5,7 +5,7 @@ module.exports = {
 	addModel : function(modelID,description,modelPath,paper_link,tagsCommaSeparated,developer_username,callback) {
 		tagsList = tagsCommaSeparated.split(',');
 		var query = "INSERT INTO tensorServing.modelDetails (modelID,description,modelPath,paper_link,tags,published,developer_username) VALUES (?,?,?,?,?,?,?)";
-		client.execute(query,[modelID,modelDesc,modelPath,paper_link,tagsList,false,developer_username],{ prepare: true}, function(err,result) {
+		client.execute(query,[modelID,description,modelPath,paper_link,tagsList,false,developer_username],{ prepare: true}, function(err,result) {
 			/*if(err!=null) {
 				console.log("error in addModel : "+err);
 			}*/
@@ -32,9 +32,9 @@ module.exports = {
 		});
 	},
 
-	addReview : function(modelID,reviewer_username,review,timestamp,callback) {
+	addReview : function(modelID,reviewer_username,review,callback) {
 		var query = "INSERT INTO tensorServing.modelReviews (modelID, reviewer_username, review, timestamp) VALUES (?,?,?,?)";
-		client.execute(query,[modelID,reviewer_username,review,timestamp], {prepare: true}, function(err,result) {
+		client.execute(query,[modelID,reviewer_username,review,cassandra.types.timeuuid()], {prepare: true}, function(err,result) {
 			callback(err,result);
 		});
 	},

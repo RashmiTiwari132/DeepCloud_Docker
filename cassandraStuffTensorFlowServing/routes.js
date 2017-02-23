@@ -7,7 +7,7 @@ var formidable=require("formidable");
 router.post("/addModel", function(req,res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req,function(error,fields,files) {
-		database.addModel(fields.modelID,fields.modelDescription,fields.modelPath,fields.paper_link,fields.tags,fields.developer_username, function (err,result) {
+		database.addModel(fields.modelID,fields.description,fields.modelPath,fields.paper_link,fields.tags,fields.developer_username, function (err,result) {
 			if(err!=null) {
 				res.writeHead(400,{"Content-Type": "text/html"});
 				res.write("adding model failed.");
@@ -43,10 +43,12 @@ router.post("/getModel", function(req,res) {
 router.post("/addReview",function(req,res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req,function(error,fields,files) {
-		database.addReview(fields.modelID,fields.reviewer_username,Date.now(),fields.reviewer_username,function(err,result) {
+		database.addReview(fields.modelID,fields.reviewer_username,fields.review,function(err,result) {
+	//		console.log("callbacl");
 			if(err!=null) {
 				res.writeHead(400,{"Content-Type": "text/html"});
 				res.write("Adding review failed : "+err);
+				res.end();
 			}
 			else {
 				res.writeHead(200,{"Content-Type": "text/html"});
@@ -58,10 +60,11 @@ router.post("/addReview",function(req,res) {
 });
 
 router.get("/getReviews",function(req,res) {
-	database.getReviews(req.query.modeID,function(err,result) {
+	database.getReviews(req.query.modelID,function(err,result) {
 		if(err!=null) {
 				res.writeHead(400,{"Content-Type": "text/html"});
 				res.write("Fetching reviews failed : "+err);
+				res.end();
 		}
 		else {
 			res.writeHead(200,{"Content-Type": "text/html"});
