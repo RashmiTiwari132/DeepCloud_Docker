@@ -1,5 +1,6 @@
 const http = require('http');
 const exec = require('child_process').exec;
+const  uuid = require('node-uuid');
 
 const runcommand_docker3 = "curl -k -H \"Content-Type: application/json\" -X POST -d @deployment_ubuntu.json http:\/\/s3-worker1.ece.ufl.edu\/apis\/extensions\/v1beta1\/namespaces\/default\/deployments\/";
 const options_json = {
@@ -21,11 +22,15 @@ const options_json = {
   }
 };
 
+options_json["metadata"]["name"] = options_json["metadata"]["name"]+"-"+uuid()
+
 const options_jsonString = JSON.stringify(options_json);
 
+
 var options_createpod = {
-	host:'s3-worker1.ece.ufl.edu',
+	host:'deepc05.acis.ufl.edu',
 	path:'/api/v1/namespaces/default/pods/',
+	port:8080,
 	method: 'POST',
 	json: 'true',
 	headers : {
