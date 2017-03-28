@@ -44,3 +44,8 @@ https://github.com/mjhea0/passport-local-express4 => http://mherman.org/blog/201
 https://blog.risingstack.com/node-hero-node-js-authentication-passport-js/
 
 http://stackoverflow.com/questions/27637609/understanding-passport-serialize-deserialize
+
+-----
+https cert + nginx : https://www.digitalocean.com/community/questions/http-https-redirect-positive-ssl-on-nginx
+
+https redirection : http://serverfault.com/questions/145383/proxy-https-requests-to-a-http-backend-with-nginx
