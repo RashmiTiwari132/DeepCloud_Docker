@@ -37,6 +37,8 @@ https://www.npmjs.com/package/cassandra-store
 
 https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions
 
+https://www.airpair.com/express/posts/expressjs-and-passportjs-sessions-deep-dive
+
 https://github.com/jaredhanson/passport
 
 https://github.com/mjhea0/passport-local-express4 => http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/
