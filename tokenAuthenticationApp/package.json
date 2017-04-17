@@ -1,0 +1,21 @@
+{
+  "name": "tokenauthenticationapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.9.4",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local-mongoose": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodejs app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
